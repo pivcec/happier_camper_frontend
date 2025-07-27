@@ -12,7 +12,7 @@ export default function CanvasScene() {
   return (
     <>
       <Canvas
-        camera={{ position: [2, 2, 5], fov: 50 }}
+        camera={{ position: [0, 50, 300], fov: 50 }}
         style={{ height: "100vh", width: "100vw" }}
       >
         <ambientLight intensity={intensity} />
