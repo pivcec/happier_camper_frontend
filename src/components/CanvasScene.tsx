@@ -1,27 +1,19 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { Perf } from "r3f-perf";
-import { Leva, useControls } from "leva";
-import MyGLBModel from "./MyGLBModel";
+import CamperScene from "./CamperScene";
 
-export default function CanvasScene() {
-  const { intensity } = useControls({
-    intensity: { value: 0.5, min: 0, max: 2 },
-  });
-
+const SceneCanvas = () => {
   return (
-    <>
-      <Canvas
-        camera={{ position: [0, 50, 300], fov: 50 }}
-        style={{ height: "100vh", width: "100vw" }}
-      >
-        <ambientLight intensity={intensity} />
-        <directionalLight position={[5, 5, 5]} intensity={0.8} />
-        <OrbitControls />
-        <Perf position="top-left" />
-        <MyGLBModel />
-      </Canvas>
-      <Leva collapsed />
-    </>
+    <Canvas
+      camera={{ position: [0, 50, 300], fov: 50 }}
+      style={{ height: "100vh", width: "100vw" }}
+    >
+      <ambientLight />
+      <pointLight position={[10, 10, 10]} />
+
+      <CamperScene />
+      {/* No OrbitControls here */}
+    </Canvas>
   );
-}
+};
+
+export default SceneCanvas;
